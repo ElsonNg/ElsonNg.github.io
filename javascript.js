@@ -14,7 +14,3 @@ $(".content-toolbar a").on('click', function(){
     return false;
 });
 
-var path = window.location.pathname;
-var page = path.split("/").pop();
-if(page == "index.html" || page == "contact.html")
-    $('body,html').css('overflow','hidden');
