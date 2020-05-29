@@ -51,7 +51,7 @@ html, body {
 }
 
 body {
-    background-image: url(imgs/backgroundblur.PNG);
+    background-image: url("imgs/backgroundblur.PNG");
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -156,12 +156,14 @@ body {
 }
 
 .content-about h1{
+    font-size: 1.8vw;
     font-weight: bold;
     margin-bottom: 2%;
 }
 
 .content-about p{
     margin-top: 3%;
+    font-size: 1vw;
 }
 
 .content-image-para{

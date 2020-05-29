@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Elson Ng</title>
+    <!-- Bootstrap CSS file -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href=".././style.css">
+
+    
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="../index.html">elson ng.</a>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html">home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../projects.html">projects</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="../portfolio.html">portfolio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../contact.html">about</a>
+            </li>
+          </ul>
+        </div>
+    </nav>
+
+
+    <div class="content-background">
+        <div class="content">
+            <div class="content-about">
+              <h1>Destruction</h1>
+              <div class="content-image-para">
+                <img src="../imgs/bigbrainthumbnail.PNG">
+                <p>One thing that I have always been fascinated about is destruction in games. Giving the player the ability to break stuff into pieces brings another level of immersion.</p>
+                <p>However, that often comes at a price due to the heavy computation from the rigidbodies colliding with each other.</p>
+              </div>
+            </div>
+            <div class="content-about">
+              <h1>Maya-Baked Destructions</h1>
+              <p>In game dev, there is often a saying 'Fake it till you make it'. If you can't use real-time destruction, fake it
+                till it looks believeable, which is what I did.
+              </p>
+              <p>I started off using baked destructions by shattering models in Maya before bringing them into Unity.
+                The result was consistent. Well, at the expense of realism of course since it is the same meshes being instantiated every single time.
+              </p>
+              <p>That quickly got boring as I wanted the player to feel that they could affect geometry in unique ways. For example, shooting a bullet
+                in a thin wall should create a hole right down the middle, with cracks and fractures along the wall and not destroy the wall entirely.
+              </p>
+            </div>
+            <div class="content-about">
+              <h1>Creating Triangulations</h1>
+              <p>It was around this time, when I chanced upon a github repo about using delaunay triangulations to create destructions in real-time. 
+                While it might not be very scalable due to the real-time calculations, it was a good starting point as the results were really
+                interesting.</p>
+              <p>I read that to create voronoi diagrams, and thus voronoi fractures, one can use the dual graph of its delaunay triangulation to achieve that.
+                Since this was rather math heavy, I started off trying to create delaunay triangulation in 2D.
+              </p>
+            </div>
+            <div class="content-about">
+              <h1>2D Delaunay Triangulation</h1>
+              <p>There are many ways to achieve delaunay triangulation and I decided on using the Bowyer-Watson algorithm. It was intuitive:
+                Insert a point, find all the bad triangles, retriangulate, rinse and repeat.
+              </p>
+              <p>There were roadblocks initially due to a lack of understanding but I quickly got over it. The result was fascinating, seeing
+                random points being triangulated in such a beautiful way, only a nerd could understand (haha). However,
+                things came to a stop when I tried implementing 3D delaunay triangulations.
+              </p>
+            </div>
+            <div class="content-about">
+              <h1>3D Delaunay Triangulation</h1>
+              <p>You see, the problem with 3D is that instead of finding bad triangles, you have to find all the bad tetrahedrons and retetrahedralise them.
+                There are also multiple possible triangulations for a given set of points which meant that it was difficult to see the problem visually.
+                This also means that the computation becomes increasingly expensive and based on my current understanding, I have yet to get it to work.
+              </p>
+            </div>
+            <div class="content-about">
+              <h1>Future Plans</h1>
+              <p>While I have stopped working on this at the moment, I will definitely come back to relook and try to implement this again. Perhaps, I will also look at other alternatives like GPU-baked destructions. Stay tuned!</p>
+            </div>
+        </div>
+ 
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script> -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="javascript.js"></script>
+</body>
